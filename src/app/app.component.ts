@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularCustomTheme';
+  isDarkTheme : boolean = false;
+  ngOnInit(){
+    this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
+  }
+  storeTheme(){
+    localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
+  }
 }
