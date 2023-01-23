@@ -13,15 +13,16 @@ export class AppComponent {
   constructor(private translate: TranslateService) {
      translate.setDefaultLang(this.lang);
     
-    this.lang = localStorage.getItem('lang') === "en" ? "en" : "mr";
+    this.lang = localStorage.getItem('lang');
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true : false;
-
+    this.translate.use(this.lang)
   }
   storeTheme(){
     localStorage.setItem('theme', this.isDarkTheme ? "Dark" : "Light");
   }
   setLang(language:string){
-    localStorage.setItem('lang', JSON.stringify(this.translate.use(language)) ? "en" : "mr");
+    this.translate.use(language)
+    localStorage.setItem('lang', language);
     console.log(this.lang);
     
   }
