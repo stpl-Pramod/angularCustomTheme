@@ -14,21 +14,21 @@ $my-theme: mat.define-light-theme((
     accent: $my-accent,
     warn: $my-warn,
   ),
-  density: 0,
+  density: -3,
 ));
 @include mat.all-component-themes($my-theme);
 
 //Dark theme ts
 $my-primary-dark: mat.define-palette(mat.$blue-gray-palette, 900);
 $my-accent-dark: mat.define-palette(mat.$gray-palette, 900);
-$my-warn-dark: mat.define-palette(mat.$grey-palette, 500);
+$my-warn-dark: mat.define-palette(mat.$light-gray-palette);
 $my-theme-dark: mat.define-dark-theme((
   color: (
     primary: $my-primary-dark,
     accent: $my-accent-dark,
     warn: $my-warn-dark,
   ),
-  density: -2,
+  density: -3,
 ));
 .dark-theme-mode{
   @include mat.all-component-themes($my-theme-dark);
